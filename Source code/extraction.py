@@ -87,6 +87,15 @@ def extract_wikiproject_articles(wikiproject_id):
         "Unassessed"
     ]
 
+    importance_grades = [
+        "Top",
+        "High",
+        "Mid",
+        "Low",
+        "Unknown"
+    ]
+
+
     url = f'https://api.wp1.openzim.org/v1/projects/{wikiproject_id}/articles'
 
     first_params = {
@@ -137,6 +146,10 @@ def extract_wikiproject_articles(wikiproject_id):
 
     # Filter not necessary pages (categories, redirects, etc.)
     df_tot = df_tot[df_tot["quality"].isin(quality_grades)].reset_index(drop=True)
+
+    # df_tot.loc[df_tot["importance"] not in importance_grades, "importance"] = "Unknown"
+    # df_tot["importance"] = np.where(df_tot["importance"] in importance_grades, "Unknown", df_tot["importance"])
+    df_tot['importance'] = df_tot['importance'].apply(lambda x: x if x in importance_grades else "Unknown")
 
     # Drop not necessary columns
     df_tot.drop(['article_history_link', 'article_talk', 'article_talk_link', 'quality_updated', 'importance_updated'], axis=1, inplace=True)

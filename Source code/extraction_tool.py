@@ -197,5 +197,5 @@ if __name__ == "__main__":
         clear()
 
         # Start main menu
-        print("\nWellcome to the data extractor of Visual Content Assessment Tool")
+        print("\nWelcome to the data extractor of Visual Content Assessment Tool")
         main()
