@@ -1,3 +1,5 @@
+print("\nInitializing the tool. Please wait...")
+
 from extraction import extract_wikiprojects_list, full_extraction, check_connection
 import shutil
 import os
@@ -79,7 +81,8 @@ def main():
 def select_wp():
     while True:
         print("Extract articles from Wikiproject")
-        print("Check if a project exists at https://wp1.openzim.org/")
+        print("Check if a Wikiproject exists at https://wp1.openzim.org/")
+        print("(Wikiproject names are case sensitive)")
 
         print_menu(wp_menu)
 
@@ -160,10 +163,10 @@ def extract_data(project_name, project_type):
     print(f'\nExtraction of "{project_name}" started')
     full_extraction(project_name=project_name, project_type=project_type)
     print(f"\n{Colors.OKGREEN}Done!{Colors.ENDC}\n")
-    input("\nPress any key to continue...")
+    input("\nPress Enter to continue...")
     clear()
     print(f'\nYou can find the output at "output/{project_type}_{project_name}/"')
-    input("\nPress any key to continue...")
+    input("\nPress Enter to continue...")
     main()
 
 
@@ -171,7 +174,7 @@ if __name__ == "__main__":
 
     if not check_connection():
         print("\nYou need an internet connection to use this application")
-        input("Press any key to exit...")
+        input("Press Enter to exit...")
 
     else:
         print("\nCollecting data. Please wait...")

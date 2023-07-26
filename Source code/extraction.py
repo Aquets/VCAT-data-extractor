@@ -111,8 +111,9 @@ def extract_wikiproject_articles(wikiproject_id):
     r = session.get(url=url, params=first_params)
     data = r.json()
     tot_pages = data["pagination"]["total_pages"]
+    tot_articles = data["pagination"]["total"]
 
-    pbar = tqdm(total=tot_pages)
+    pbar = tqdm(total=tot_articles)
 
     while True:
         page_number += 1
@@ -127,7 +128,7 @@ def extract_wikiproject_articles(wikiproject_id):
 
         tot_pages = data["pagination"]["total_pages"]
 
-        pbar.update(1)
+        pbar.update(len(data["articles"]))
 
         df = pd.DataFrame(data["articles"])
         if df_tot.empty:
