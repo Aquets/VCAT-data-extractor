@@ -1,0 +1,9 @@
+
+.DS_Store
+Source code/env
+
+# exclude everything
+Source code/output/*
+
+# exception to the rule
+!Source code/output/.gitkeep 
