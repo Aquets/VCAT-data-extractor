@@ -92,6 +92,7 @@ def select_wp():
 
         if wikiproject_id in projects_list:
             clear()
+            wikiproject_id = wikiproject_id.replace(" ", "_")
             extract_data(project_name=wikiproject_id, project_type="wp")
 
         else:
