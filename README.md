@@ -3,11 +3,9 @@
 ## Install
 
 ### Requirements
-Python 3.x
-
-PIP (https://pip.pypa.io/en/stable/installation/)
-
-virtualenv (https://virtualenv.pypa.io/en/latest/installation.html)
+* Python 3.x
+* PIP (https://pip.pypa.io/en/stable/installation/)
+* virtualenv (https://virtualenv.pypa.io/en/latest/installation.html)
 
 ### Steps
 
